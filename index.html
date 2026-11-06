@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AO Produções · Locação de som e produção audiovisual</title>
+<meta name="description" content="Locação de som, técnico, transmissão ao vivo, filmagem e gravação para igrejas e empresas. Barueri, SP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f3f2f7;
+  --tile:#ecebf2;
+  --ink:#25213f;
+  --ink-soft:#5b5774;
+  --violet:#4a22d6;
+  --violet-2:#6b4cf0;
+  --lilac:#b9a8ff;
+  --lilac-soft:#ddd5ff;
+  --night:#1c1930;
+  --display:'Poppins',system-ui,sans-serif;
+  --text:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--text);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+
+/* Cabeçalho */
+.nav{position:sticky;top:0;z-index:40;background:rgba(243,242,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(37,33,63,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:44px;color:var(--violet)}
+.brand b{font:700 17px/1 var(--display);letter-spacing:-.01em}
+.brand small{display:block;font:500 10px/1.2 var(--display);color:var(--ink-soft);letter-spacing:.08em;margin-top:3px}
+.menu{display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0;font:500 14px/1 var(--display)}
+.menu a{text-decoration:none}
+.menu a:hover{color:var(--violet)}
+.quote{background:var(--violet);color:#fff;padding:10px 16px;border-radius:8px;font:600 14px/1 var(--display);text-decoration:none;white-space:nowrap}
+.quote:hover{background:#3a17b5}
+.burger{display:none;border:0;background:none;width:44px;height:44px;padding:10px;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--ink);margin:6px 0;border-radius:2px}
+@media(max-width:900px){
+  .menu{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid rgba(37,33,63,.08);padding:8px 20px 18px;display:none}
+  .menu.open{display:flex}
+  .menu li a{display:block;padding:14px 0;font-size:17px}
+  .menu .quote{text-align:center;margin-top:8px;padding:14px}
+  .burger{display:block}
+}
+
+/* HERO: colagem */
+.hero{padding:10px 0 0;overflow:hidden}
+.hero svg.collage{width:100%;height:auto;max-width:1300px;margin:0 auto}
+.hero-word{font:800 330px/1 var(--display);letter-spacing:-.02em}
+.play-btn{cursor:pointer}
+.play-btn:hover .play-ring{fill:#3a17b5}
+.float{animation:bob 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes bob{50%{transform:translateY(-14px) rotate(-3deg)}}
+@media (prefers-reduced-motion:reduce){.float{animation:none}}
+.hero-tag-mobile{display:none;text-align:center;font:600 13px/1.4 var(--display);letter-spacing:.06em;margin:4px 20px 26px}
+@media(max-width:700px){.hero .desk-tag{display:none}.hero-tag-mobile{display:block}}
+
+/* Apresentação + serviços (dois blocos) */
+.split{display:grid;grid-template-columns:1fr 1fr}
+.split .intro{background:var(--violet);color:#fff;padding:clamp(40px,6vw,88px) clamp(24px,6vw,80px)}
+.split h1{margin:0 0 22px;font:600 clamp(32px,3.6vw,48px)/1.1 var(--display);letter-spacing:-.02em}
+.split p{margin:0 0 16px;color:#e9e4ff;max-width:52ch}
+.split p b{color:#fff;font-weight:600}
+.intro .cta{display:inline-flex;align-items:center;gap:10px;margin-top:14px;background:#fff;color:var(--violet);padding:15px 22px;border-radius:10px;font:600 16px/1 var(--display);text-decoration:none}
+.intro .cta svg{width:20px;height:20px}
+.split .serv{background:var(--night);color:#fff;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:40px clamp(20px,4vw,56px);min-height:520px}
+.serv .art{align-self:stretch;display:grid;place-items:center}
+.serv .art svg{width:100%;max-width:200px;max-height:400px;height:auto}
+.serv ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;justify-items:start}
+.serv li a{display:inline-block;border:2px dotted rgba(255,255,255,.7);padding:7px 12px;font:500 17px/1.2 var(--display);text-decoration:none}
+.serv li a:hover{background:#fff;color:var(--night);border-style:solid}
+.serv .stars{position:absolute;inset:0;pointer-events:none;opacity:.5}
+@media(max-width:900px){.split{grid-template-columns:1fr}.split .serv{min-height:0}}
+@media(max-width:520px){.split .serv{grid-template-columns:1fr}.serv .art svg{max-width:170px}}
+
+/* Quadriculado de serviços e equipamentos */
+.grid-head{padding:72px 0 28px}
+.grid-head h2,.band h2,.who h2,.contact h2{margin:0;font:600 clamp(30px,3.2vw,44px)/1.1 var(--display);letter-spacing:-.02em}
+.grid-head p{margin:10px 0 0;color:var(--ink-soft);max-width:60ch}
+.checker{display:grid;grid-template-columns:repeat(3,1fr)}
+.cell{aspect-ratio:1/1;min-height:0}
+.cell.text{background:var(--tile);padding:clamp(22px,3vw,44px);display:flex;flex-direction:column}
+.cell.text h3{margin:0 0 14px;font:500 clamp(26px,2.4vw,36px)/1.15 var(--display);letter-spacing:-.015em}
+.cell.text p{margin:0;color:var(--ink-soft);font-size:16px}
+.cell.text .tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px;padding-top:16px}
+.cell.text .tags span{font:500 13px/1 var(--text);background:#fff;padding:8px 10px;border-radius:6px}
+.cell.pic{position:relative;overflow:hidden;display:grid;place-items:center}
+.cell.pic svg{width:78%;height:78%}
+.cell.pic .note{position:absolute;left:14px;bottom:12px;font:500 12px/1 var(--text);color:rgba(255,255,255,.75)}
+.bg-v{background:var(--violet)}.bg-n{background:var(--night)}.bg-l{background:var(--lilac)}.bg-w{background:#fff}
+.bg-l .note,.bg-w .note{color:var(--ink-soft)}
+@media(max-width:900px){.checker{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.checker{grid-template-columns:1fr}.cell{aspect-ratio:auto}.cell.pic{aspect-ratio:4/3}}
+
+/* Faixa de diferenciais */
+.band{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px}
+.band .b{padding:40px clamp(20px,2.4vw,36px) 46px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.band .b:nth-child(odd){background:var(--night);color:#fff}
+.band .b:nth-child(even){background:var(--lilac)}
+.band h3{margin:0 0 16px;font:500 26px/1.2 var(--display)}
+.band svg{width:150px;height:130px;margin-bottom:20px}
+.band p{margin:0;font-size:16px;max-width:30ch}
+.band .b:nth-child(odd) p{color:#d6d1ee}
+@media(max-width:900px){.band{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.band{grid-template-columns:1fr}}
+
+/* Para quem */
+.who{padding:84px 0}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.who-card{border-radius:20px;padding:34px;display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start}
+.who-card svg{width:120px;height:120px}
+.who-card h3{margin:0 0 8px;font:600 28px/1.1 var(--display)}
+.who-card p{margin:0 0 16px;color:var(--ink-soft)}
+.who-card ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.who-card li{font-size:14px;background:#fff;padding:7px 11px;border-radius:6px}
+.who-card.a{background:var(--lilac-soft)}.who-card.b{background:#fff}
+.who-card.b li{background:var(--paper)}
+@media(max-width:900px){.who-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.who-card{grid-template-columns:1fr}.who-card svg{width:90px;height:90px}}
+
+/* Contato */
+.contact{background:var(--violet);color:#fff;padding:80px 0}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.contact p{color:#e6e0ff;margin:14px 0 26px;max-width:40ch}
+.contact .direct{display:grid;gap:14px}
+.contact .direct small{display:block;font-size:13px;color:#cfc5ff}
+.contact .direct a,.contact .direct strong{font:600 26px/1.2 var(--display);text-decoration:none;color:#fff}
+form{background:#fff;color:var(--ink);border-radius:18px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form .full{grid-column:1/-1}
+label{display:block;font:600 13px/1.2 var(--display);margin-bottom:6px}
+input,select,textarea{width:100%;font:inherit;font-size:16px;border:1.5px solid #d9d6e6;border-radius:10px;padding:12px 13px;background:#fbfbfd;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(74,34,214,.15)}
+textarea{min-height:90px;resize:vertical}
+form button{grid-column:1/-1;border:0;background:var(--ink);color:#fff;border-radius:10px;padding:16px;font:600 16px/1 var(--display);cursor:pointer;display:flex;gap:10px;justify-content:center;align-items:center}
+form button:hover{background:#000}
+form button svg{width:20px;height:20px}
+.contact form .form-note{grid-column:1/-1;margin:-4px 0 0;font-size:13px;color:var(--ink-soft);max-width:none}
+@media(max-width:900px){.contact .wrap{grid-template-columns:1fr}}
+@media(max-width:520px){form{grid-template-columns:1fr;padding:22px}}
+
+footer{background:var(--night);color:#bdb7da;font-size:14px;padding:26px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     ILUSTRAÇÕES (recortes em tons de cinza, estilo colagem)
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Efeito "recorte": borda branca, sombra e granulado de papel -->
+    <filter id="cut" x="-20%" y="-20%" width="140%" height="150%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="3.2" result="d"/>
+      <feFlood flood-color="#fff"/><feComposite in2="d" operator="in" result="edge"/>
+      <feGaussianBlur in="d" stdDeviation="5" result="bl"/><feOffset in="bl" dy="8" result="of"/>
+      <feFlood flood-color="#1c1930" flood-opacity=".28"/><feComposite in2="of" operator="in" result="sh"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="4" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .45 -.12" result="na"/>
+      <feComposite in="na" in2="SourceAlpha" operator="in" result="grain"/>
+      <feMerge><feMergeNode in="sh"/><feMergeNode in="edge"/><feMergeNode in="SourceGraphic"/><feMergeNode in="grain"/></feMerge>
+    </filter>
+    <linearGradient id="g-metal" x1="0" x2="1"><stop offset="0" stop-color="#3b3b40"/><stop offset=".45" stop-color="#6b6b72"/><stop offset="1" stop-color="#2e2e33"/></linearGradient>
+    <linearGradient id="g-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4a50"/><stop offset="1" stop-color="#1f1f23"/></linearGradient>
+    <radialGradient id="g-cone" cx=".42" cy=".38" r=".7"><stop offset="0" stop-color="#9a9aa2"/><stop offset=".35" stop-color="#4c4c53"/><stop offset="1" stop-color="#141417"/></radialGradient>
+    <radialGradient id="g-lens" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#d8d8e0"/><stop offset=".25" stop-color="#5a5a66"/><stop offset=".6" stop-color="#16161b"/><stop offset="1" stop-color="#3a3a40"/></radialGradient>
+    <radialGradient id="g-ball" cx=".38" cy=".32" r=".75"><stop offset="0" stop-color="#e4e4ea"/><stop offset=".45" stop-color="#8d8d95"/><stop offset="1" stop-color="#3a3a40"/></radialGradient>
+    <pattern id="mesh" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 0 5 5M5 0 0 5" stroke="#2a2a2f" stroke-width=".9" opacity=".55"/></pattern>
+    <pattern id="grill" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.4" fill="#141417"/></pattern>
+
+    <!-- Caixa de som -->
+    <symbol id="speaker" viewBox="0 0 140 240">
+      <g filter="url(#cut)">
+        <rect x="8" y="6" width="124" height="228" rx="12" fill="url(#g-body)"/>
+        <rect x="18" y="16" width="104" height="58" rx="6" fill="#2b2b30"/><rect x="18" y="16" width="104" height="58" rx="6" fill="url(#grill)"/>
+        <circle cx="70" cy="45" r="16" fill="url(#g-cone)"/>
+        <circle cx="70" cy="158" r="52" fill="#18181c"/><circle cx="70" cy="158" r="46" fill="url(#g-cone)"/>
+        <circle cx="70" cy="158" r="15" fill="#2a2a2f"/><circle cx="66" cy="153" r="5" fill="#9b9ba3" opacity=".7"/>
+        <rect x="8" y="6" width="124" height="228" rx="12" fill="none" stroke="#5c5c63" stroke-width="2"/>
+      </g>
+    </symbol>
+
+    <!-- Microfone de mão -->
+    <symbol id="mic" viewBox="0 0 90 250">
+      <g filter="url(#cut)">
+        <path d="M30 92 L60 92 L52 236 Q45 244 38 236 Z" fill="url(#g-metal)"/>
+        <rect x="28" y="84" width="34" height="14" rx="4" fill="#2d2d32"/>
+        <circle cx="45" cy="48" r="38" fill="url(#g-ball)"/>
+        <circle cx="45" cy="48" r="38" fill="url(#mesh)"/>
+        <path d="M9 52 Q45 64 81 52" stroke="#2c2c31" stroke-width="3" fill="none"/>
+        <rect x="41" y="150" width="8" height="18" rx="3" fill="#9a9aa2"/>
+      </g>
+    </symbol>
+
+    <!-- Câmera de cinema no tripé -->
+    <symbol id="camera" viewBox="0 0 230 270">
+      <g filter="url(#cut)">
+        <path d="M112 150 L60 262 M118 150 L118 266 M124 150 L176 262" stroke="#3b3b40" stroke-width="7" stroke-linecap="round"/>
+        <rect x="96" y="138" width="44" height="18" rx="4" fill="#2b2b30"/>
+        <circle cx="78" cy="38" r="32" fill="#333338"/><circle cx="78" cy="38" r="26" fill="none" stroke="#6a6a72" stroke-width="3"/><circle cx="78" cy="38" r="6" fill="#88888f"/>
+        <circle cx="146" cy="38" r="32" fill="#333338"/><circle cx="146" cy="38" r="26" fill="none" stroke="#6a6a72" stroke-width="3"/><circle cx="146" cy="38" r="6" fill="#88888f"/>
+        <rect x="52" y="64" width="128" height="78" rx="8" fill="url(#g-body)"/>
+        <rect x="60" y="74" width="30" height="16" rx="3" fill="#5f5f66"/>
+        <rect x="180" y="82" width="20" height="44" rx="4" fill="#3a3a40"/>
+        <circle cx="208" cy="104" r="22" fill="#26262b"/><circle cx="208" cy="104" r="16" fill="url(#g-lens)"/>
+      </g>
+    </symbol>
+
+    <!-- Mesa de som -->
+    <symbol id="mixer" viewBox="0 0 260 140">
+      <g filter="url(#cut)">
+        <path d="M10 40 L250 40 L240 126 L20 126 Z" fill="url(#g-body)"/>
+        <path d="M10 40 L250 40 L246 30 L14 30 Z" fill="#5a5a61"/>
+        <g fill="#8a8a92">
+          <circle cx="36" cy="54" r="5"/><circle cx="62" cy="54" r="5"/><circle cx="88" cy="54" r="5"/><circle cx="114" cy="54" r="5"/><circle cx="140" cy="54" r="5"/><circle cx="166" cy="54" r="5"/><circle cx="192" cy="54" r="5"/><circle cx="218" cy="54" r="5"/>
+          <circle cx="36" cy="72" r="4"/><circle cx="62" cy="72" r="4"/><circle cx="88" cy="72" r="4"/><circle cx="114" cy="72" r="4"/><circle cx="140" cy="72" r="4"/><circle cx="166" cy="72" r="4"/><circle cx="192" cy="72" r="4"/><circle cx="218" cy="72" r="4"/>
+        </g>
+        <g stroke="#141417" stroke-width="3" stroke-linecap="round"><path d="M36 86v30M62 86v30M88 86v30M114 86v30M140 86v30M166 86v30M192 86v30M218 86v30"/></g>
+        <g fill="#d8d8de"><rect x="31" y="98" width="10" height="7" rx="1.5"/><rect x="57" y="92" width="10" height="7" rx="1.5"/><rect x="83" y="104" width="10" height="7" rx="1.5"/><rect x="109" y="95" width="10" height="7" rx="1.5"/><rect x="135" y="100" width="10" height="7" rx="1.5"/><rect x="161" y="90" width="10" height="7" rx="1.5"/><rect x="187" y="106" width="10" height="7" rx="1.5"/><rect x="213" y="96" width="10" height="7" rx="1.5"/></g>
+      </g>
+    </symbol>
+
+    <!-- Fones de ouvido -->
+    <symbol id="phones" viewBox="0 0 150 140">
+      <g filter="url(#cut)">
+        <path d="M22 86 Q22 14 75 14 Q128 14 128 86" fill="none" stroke="#3a3a40" stroke-width="12" stroke-linecap="round"/>
+        <rect x="8" y="72" width="34" height="58" rx="14" fill="url(#g-body)"/>
+        <rect x="108" y="72" width="34" height="58" rx="14" fill="url(#g-body)"/>
+        <rect x="16" y="82" width="12" height="38" rx="6" fill="#77777e"/>
+        <rect x="122" y="82" width="12" height="38" rx="6" fill="#77777e"/>
+      </g>
+    </symbol>
+
+    <!-- Relógio -->
+    <symbol id="clock" viewBox="0 0 150 150">
+      <g filter="url(#cut)">
+        <rect x="68" y="4" width="14" height="16" rx="3" fill="#3a3a40"/>
+        <circle cx="75" cy="82" r="62" fill="url(#g-body)"/><circle cx="75" cy="82" r="52" fill="#e9e8ee"/>
+        <g stroke="#2a2a2f" stroke-width="3" stroke-linecap="round"><path d="M75 36v8M75 120v8M29 82h8M113 82h8"/></g>
+        <path d="M75 82 L75 52 M75 82 L98 94" stroke="#1c1c20" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="75" cy="82" r="5" fill="#1c1c20"/>
+      </g>
+    </symbol>
+
+    <!-- Documento de orçamento -->
+    <symbol id="doc" viewBox="0 0 130 160">
+      <g filter="url(#cut)">
+        <path d="M14 8 H92 L118 34 V152 H14 Z" fill="#f2f1f6"/>
+        <path d="M92 8 V34 H118" fill="#cfcdd8"/>
+        <g fill="#8c8a99"><rect x="28" y="50" width="62" height="7" rx="3"/><rect x="28" y="66" width="74" height="5" rx="2.5"/><rect x="28" y="78" width="74" height="5" rx="2.5"/><rect x="28" y="90" width="52" height="5" rx="2.5"/></g>
+        <rect x="28" y="114" width="74" height="22" rx="4" fill="#25213f"/>
+        <rect x="14" y="8" width="104" height="144" fill="none" stroke="#bdbac9" stroke-width="2"/>
+      </g>
+    </symbol>
+
+    <!-- Igreja -->
+    <symbol id="church" viewBox="0 0 160 170">
+      <g filter="url(#cut)">
+        <path d="M80 6v24M70 16h20" stroke="#3a3a40" stroke-width="6" stroke-linecap="round"/>
+        <path d="M80 30 L112 62 V160 H48 V62 Z" fill="url(#g-body)"/>
+        <path d="M14 96 L48 74 V160 H14 Z M146 96 L112 74 V160 H146 Z" fill="#5a5a61"/>
+        <path d="M68 160 V124 Q80 108 92 124 V160 Z" fill="#1a1a1e"/>
+        <circle cx="80" cy="80" r="12" fill="#d6d5de"/>
+      </g>
+    </symbol>
+
+    <!-- Prédio de empresa -->
+    <symbol id="office" viewBox="0 0 160 170">
+      <g filter="url(#cut)">
+        <rect x="34" y="10" width="92" height="152" rx="4" fill="url(#g-body)"/>
+        <g fill="#cfcdd8" opacity=".85">
+          <rect x="46" y="24" width="18" height="14"/><rect x="71" y="24" width="18" height="14"/><rect x="96" y="24" width="18" height="14"/>
+          <rect x="46" y="48" width="18" height="14"/><rect x="71" y="48" width="18" height="14"/><rect x="96" y="48" width="18" height="14"/>
+          <rect x="46" y="72" width="18" height="14"/><rect x="71" y="72" width="18" height="14"/><rect x="96" y="72" width="18" height="14"/>
+          <rect x="46" y="96" width="18" height="14"/><rect x="71" y="96" width="18" height="14"/><rect x="96" y="96" width="18" height="14"/>
+        </g>
+        <rect x="66" y="126" width="28" height="36" fill="#141417"/>
+      </g>
+    </symbol>
+
+    <!-- Pessoinhas: cantora com microfone, cinegrafista -->
+    <symbol id="singer" viewBox="0 0 60 150">
+      <g filter="url(#cut)">
+        <circle cx="30" cy="16" r="11" fill="#3a3a40"/>
+        <path d="M18 32 Q30 26 42 32 L46 84 L14 84 Z" fill="#55555c"/>
+        <path d="M16 84 L44 84 L48 140 L12 140 Z" fill="#2a2a2f"/>
+        <path d="M40 38 Q52 30 48 20" stroke="#55555c" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <circle cx="46" cy="17" r="4.5" fill="#9a9aa2"/>
+      </g>
+    </symbol>
+    <symbol id="cameraman" viewBox="0 0 90 150">
+      <g filter="url(#cut)">
+        <path d="M58 76 L44 146 M62 76 L62 148 M66 76 L80 146" stroke="#3a3a40" stroke-width="3.5" stroke-linecap="round"/>
+        <rect x="46" y="58" width="34" height="20" rx="3" fill="#2a2a2f"/><circle cx="84" cy="68" r="7" fill="#55555c"/>
+        <circle cx="24" cy="46" r="10" fill="#3a3a40"/>
+        <path d="M14 60 Q24 54 34 60 L40 104 L10 104 Z" fill="#55555c"/>
+        <path d="M32 64 L50 68" stroke="#55555c" stroke-width="6" stroke-linecap="round"/>
+        <path d="M12 104 L38 104 L40 146 L10 146 Z" fill="#2a2a2f"/>
+      </g>
+    </symbol>
+
+    <!-- Símbolo AO e WhatsApp -->
+    <symbol id="ao" viewBox="0 0 124 100">
+      <mask id="aoM" maskUnits="userSpaceOnUse" x="0" y="0" width="124" height="100"><rect width="124" height="100" fill="#fff"/><path d="M14 86 L42 16 L70 86" fill="none" stroke="#000" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/></mask>
+      <circle cx="88" cy="58" r="25" mask="url(#aoM)" fill="none" stroke="currentColor" stroke-width="17"/>
+      <path d="M14 86 L42 16 L70 86" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="AO Produções, início"><svg viewBox="0 0 124 100"><use href="#ao"/></svg><span><b>AO Produções</b><small>SOM E AUDIOVISUAL</small></span></a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#equipamentos">Equipamentos</a></li>
+      <li><a href="#como">Como trabalhamos</a></li>
+      <li><a href="#para-quem">Igrejas e empresas</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a class="quote" href="#contato">Pedir orçamento</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="topo">
+  <!-- HERO: colagem com "SOM" -->
+  <section class="hero" aria-label="AO Produções: locação de som e produção audiovisual">
+    <svg class="collage" viewBox="0 0 1200 700" role="img" aria-labelledby="heroT">
+      <title id="heroT">A palavra SOM com um botão de play no lugar do O, sobre uma colagem de caixa de som, microfone, câmera e mesa de som.</title>
+      <!-- palavra gigante -->
+      <text class="hero-word" x="388" y="318" text-anchor="middle" fill="#25213f">S</text>
+      <text class="hero-word" x="842" y="318" text-anchor="middle" fill="#25213f">M</text>
+      <a class="play-btn" href="#equipamentos" aria-label="Ver os equipamentos">
+        <circle class="play-ring" cx="604" cy="206" r="122" fill="#4a22d6"/>
+        <path d="M572 146 L672 206 L572 266 Z" fill="#fff" stroke="#fff" stroke-width="14" stroke-linejoin="round"/>
+      </a>
+
+      <!-- manchas coloridas -->
+      <path d="M392 470 C360 360 470 330 560 360 C650 300 790 320 820 410 C900 430 905 560 820 600 C760 690 600 660 540 640 C450 660 360 600 392 470 Z" fill="#b9a8ff"/>
+      <path d="M300 560 C280 500 340 470 390 492 C430 470 470 520 452 560 C470 610 400 640 360 620 C320 640 290 600 300 560 Z" fill="#4a22d6"/>
+      <path d="M800 470 C830 430 900 440 912 480 C950 500 930 560 890 560 C860 590 800 570 796 530 C770 510 780 480 800 470 Z" fill="#25213f"/>
+      <path d="M650 320 C690 300 740 320 730 350 C720 380 660 380 650 360 C630 350 630 330 650 320 Z" fill="#ddd5ff"/>
+
+      <!-- objetos recortados -->
+      <use href="#speaker" x="372" y="312" width="150" height="257"/>
+      <use href="#camera" x="616" y="300" width="230" height="270"/>
+      <use href="#mixer" x="455" y="520" width="300" height="162"/>
+      <g transform="rotate(-14 560 470)"><use href="#mic" x="512" y="350" width="88" height="244"/></g>
+
+      <!-- pessoinhas -->
+      <ellipse cx="200" cy="658" rx="34" ry="5" fill="#25213f" opacity=".15"/>
+      <use href="#singer" x="168" y="508" width="60" height="150"/>
+      <ellipse cx="1010" cy="640" rx="40" ry="5" fill="#25213f" opacity=".15"/>
+      <use href="#cameraman" x="968" y="490" width="90" height="150"/>
+
+      <!-- fone flutuando com plaquinha -->
+      <g class="float">
+        <use href="#phones" x="960" y="70" width="120" height="112"/>
+        <g transform="rotate(8 1080 200)">
+          <rect x="1022" y="182" width="150" height="40" rx="6" fill="#fff" stroke="#25213f" stroke-width="2"/>
+          <text x="1097" y="208" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="600" font-size="17" fill="#25213f">Aumenta o som</text>
+        </g>
+      </g>
+
+      <!-- frase do topo -->
+      <g class="desk-tag" font-family="Poppins,sans-serif" font-weight="500" font-size="21" fill="#25213f" letter-spacing="1.2">
+        <text x="868" y="374">LOCAÇÃO DE SOM &amp;</text>
+        <text x="868" y="402">PRODUÇÃO AUDIOVISUAL</text>
+      </g>
+    </svg>
+    <p class="hero-tag-mobile">LOCAÇÃO DE SOM &amp; PRODUÇÃO AUDIOVISUAL</p>
+  </section>
+
+  <!-- APRESENTAÇÃO + SERVIÇOS -->
+  <section class="split" id="servicos">
+    <div class="intro">
+      <h1>Som feito sob medida para o seu evento.</h1>
+      <p>Cada evento tem o seu tamanho. Para um <b>culto</b>, um <b>congresso</b> ou uma <b>convenção da empresa</b>, a gente monta o som certo para o lugar e para o público, sem sobrar e sem faltar.</p>
+      <p>Você pode alugar <b>só o equipamento</b> ou contratar tudo: <b>técnico</b>, <b>transmissão ao vivo</b>, <b>filmagem</b> e <b>gravação</b>. Chegamos antes, montamos, passamos o som e só saímos com tudo desmontado.</p>
+      <a class="cta wa-link" href="#contato"><svg><use href="#wa"/></svg>Pedir orçamento no WhatsApp</a>
+    </div>
+    <div class="serv">
+      <svg class="stars" viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="#fff"><circle cx="40" cy="60" r="1.2"/><circle cx="140" cy="30" r="1"/><circle cx="520" cy="80" r="1.4"/><circle cx="460" cy="200" r="1"/><circle cx="300" cy="40" r="1"/><circle cx="560" cy="380" r="1.2"/><circle cx="90" cy="460" r="1"/><circle cx="380" cy="480" r="1.3"/><circle cx="240" cy="300" r=".9"/><circle cx="500" cy="300" r="1"/></g></svg>
+      <div class="art"><svg viewBox="0 0 90 250" aria-hidden="true"><use href="#mic"/></svg></div>
+      <ul aria-label="Serviços">
+        <li><a href="#cell-som">Locação de som</a></li>
+        <li><a href="#cell-tecnico">Técnico de som</a></li>
+        <li><a href="#cell-live">Transmissão ao vivo</a></li>
+        <li><a href="#cell-film">Filmagem de eventos</a></li>
+        <li><a href="#cell-rec">Gravação de áudio</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- QUADRICULADO -->
+  <section id="equipamentos" aria-labelledby="eq-title">
+    <div class="wrap grid-head">
+      <h2 id="eq-title">O que a AO leva para o seu evento</h2>
+      <p>Equipamento por diária, com entrega e montagem, e a equipe para operar tudo.</p>
+    </div>
+    <div class="checker">
+      <article class="cell text" id="cell-som"><h3>Caixas de som</h3><p>Caixas e subwoofers para o tamanho do seu espaço, da sala de reuniões ao auditório cheio. Levamos, montamos e testamos antes de começar.</p><div class="tags"><span>Caixas ativas</span><span>Subwoofers</span><span>Pedestais</span></div></article>
+      <div class="cell pic bg-v" aria-hidden="true"><svg viewBox="0 0 140 240"><use href="#speaker"/></svg></div>
+      <article class="cell text"><h3>Mesas de som</h3><p>Mesas digitais configuradas antes do evento, com cada microfone e instrumento no lugar certo e o retorno ajustado para o palco.</p><div class="tags"><span>Mesas digitais</span><span>Retorno</span><span>In-ear</span></div></article>
+
+      <div class="cell pic bg-l" aria-hidden="true"><svg viewBox="0 0 260 140"><use href="#mixer"/></svg></div>
+      <article class="cell text" id="cell-tecnico"><h3>Técnico de som</h3><p>Um profissional monta, passa o som com quem vai cantar e falar, e opera a mesa do início ao fim. Você não precisa entender de som.</p><div class="tags"><span>Montagem</span><span>Passagem de som</span><span>Operação</span></div></article>
+      <div class="cell pic bg-n" aria-hidden="true"><svg viewBox="0 0 90 250"><use href="#mic"/></svg></div>
+
+      <article class="cell text" id="cell-live"><h3>Transmissão ao vivo</h3><p>Seu culto ou evento no YouTube, Instagram ou Facebook, com áudio mixado separado para quem assiste de casa ouvir bem.</p><div class="tags"><span>YouTube</span><span>Instagram</span><span>Facebook</span></div></article>
+      <div class="cell pic bg-w" aria-hidden="true"><svg viewBox="0 0 230 270"><use href="#camera"/></svg></div>
+      <article class="cell text" id="cell-film"><h3>Filmagem de eventos</h3><p>Registro do evento completo com o áudio direto da mesa, editado, e cortes curtos para as redes sociais.</p><div class="tags"><span>Evento completo</span><span>Cortes para Reels</span></div></article>
+
+      <div class="cell pic bg-n" aria-hidden="true"><svg viewBox="0 0 230 270"><use href="#camera"/></svg></div>
+      <article class="cell text" id="cell-rec"><h3>Gravação de áudio</h3><p>Gravação de cultos, louvor, podcasts e locuções, com edição, limpeza e mixagem para publicar.</p><div class="tags"><span>Cultos</span><span>Podcasts</span><span>Locuções</span></div></article>
+      <div class="cell pic bg-v" aria-hidden="true"><svg viewBox="0 0 150 140"><use href="#phones"/></svg></div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="band" id="como" aria-label="Como trabalhamos">
+    <div class="b"><h3>Chegamos antes</h3><svg viewBox="0 0 150 150" aria-hidden="true"><use href="#clock"/></svg><p>A equipe chega com tempo para montar e passar o som antes do público entrar.</p></div>
+    <div class="b"><h3>Orçamento em PDF</h3><svg viewBox="0 0 130 160" aria-hidden="true"><use href="#doc"/></svg><p>Cada item e valor descrito. Você sabe exatamente o que está contratando.</p></div>
+    <div class="b"><h3>Operamos ao vivo</h3><svg viewBox="0 0 150 140" aria-hidden="true"><use href="#phones"/></svg><p>Alguém da AO cuida do som durante todo o evento, ajustando na hora.</p></div>
+    <div class="b"><h3>Desmontamos tudo</h3><svg viewBox="0 0 260 140" aria-hidden="true"><use href="#mixer"/></svg><p>No final, recolhemos cada caixa e cada cabo. Você só cuida do evento.</p></div>
+  </section>
+
+  <!-- IGREJAS E EMPRESAS -->
+  <section class="who" id="para-quem" aria-labelledby="who-title">
+    <div class="wrap">
+      <h2 id="who-title">Para quem a gente monta o som</h2>
+      <div class="who-grid">
+        <article class="who-card a"><svg viewBox="0 0 160 170" aria-hidden="true"><use href="#church"/></svg><div><h3>Igrejas</h3><p>Palavra clara, louvor equilibrado e o culto chegando a quem assiste de casa.</p><ul><li>Cultos</li><li>Congressos</li><li>Conferências</li><li>Batismos</li><li>Eventos de jovens</li><li>Transmissão do culto</li></ul></div></article>
+        <article class="who-card b"><svg viewBox="0 0 160 170" aria-hidden="true"><use href="#office"/></svg><div><h3>Empresas</h3><p>Equipamento confiável e equipe discreta para o evento sair como foi planejado.</p><ul><li>Convenções</li><li>Palestras</li><li>Treinamentos</li><li>Lançamentos</li><li>Confraternizações</li><li>Lives corporativas</li></ul></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contato" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-title">Vamos conversar!</h2>
+        <p>Preencha os dados do evento e a mensagem já vai pronta para o nosso WhatsApp. Respondemos com o orçamento.</p>
+        <div class="direct">
+          <div><small>WhatsApp</small><a class="wa-link" href="#contato">(11) 98572-4372</a></div>
+          <div><small>Onde estamos</small><strong>Barueri, SP</strong></div>
+        </div>
+      </div>
+      <form id="quoteForm" novalidate>
+        <div><label for="fNome">Seu nome</label><input id="fNome" autocomplete="name" required></div>
+        <div><label for="fTipo">Tipo de evento</label>
+          <select id="fTipo"><option>Culto</option><option>Congresso ou conferência</option><option>Evento de empresa</option><option>Palestra ou treinamento</option><option>Outro</option></select></div>
+        <div><label for="fData">Data</label><input id="fData" type="date"></div>
+        <div><label for="fPessoas">Quantas pessoas?</label><input id="fPessoas" inputmode="numeric" placeholder="Ex.: 300"></div>
+        <div class="full"><label for="fLocal">Local / cidade</label><input id="fLocal" placeholder="Ex.: Igreja Central, Barueri"></div>
+        <div class="full"><label for="fPrecisa">Do que você precisa?</label><textarea id="fPrecisa" placeholder="Ex.: som para banda e 4 microfones, transmissão no YouTube"></textarea></div>
+        <button type="submit"><svg><use href="#wa"/></svg>Enviar pelo WhatsApp</button>
+        <p class="form-note" id="formNote">Abre o WhatsApp com a mensagem escrita. Você revisa antes de enviar.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>AO Produções Ltda · CNPJ 60.353.354/0001-41</span><span>Locação de som e produção audiovisual · Barueri, SP</span></div></footer>
+
+<script>
+const WHATSAPP = '5511985724372';
+const wa = txt => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
+document.querySelectorAll('.wa-link').forEach(a => { a.href = wa('Olá, AO Produções! Quero um orçamento para um evento.'); a.target = '_blank'; a.rel = 'noopener'; });
+
+// Menu do celular
+const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+menu.addEventListener('click', e => { if (e.target.closest('a')) { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); } });
+
+// Formulário: monta a mensagem e abre o WhatsApp
+document.getElementById('quoteForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const nome = v('fNome');
+  if (!nome) { document.getElementById('fNome').focus(); document.getElementById('formNote').textContent = 'Escreva seu nome para continuar.'; return; }
+  const data = v('fData') ? v('fData').split('-').reverse().join('/') : 'a combinar';
+  const msg = [`Olá, AO Produções! Sou ${nome} e quero um orçamento.`, `Evento: ${v('fTipo')}`, `Data: ${data}`, v('fPessoas') && `Pessoas: ${v('fPessoas')}`, v('fLocal') && `Local: ${v('fLocal')}`, v('fPrecisa') && `Preciso de: ${v('fPrecisa')}`].filter(Boolean).join('\n');
+  window.open(wa(msg), '_blank', 'noopener');
+  document.getElementById('formNote').textContent = 'Pronto! Confira a mensagem no WhatsApp e toque em enviar.';
+});
+</script>
+</body>
+</html>
