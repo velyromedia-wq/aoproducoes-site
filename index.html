@@ -150,6 +150,25 @@ form button svg{width:20px;height:20px}
 
 footer{background:var(--night);color:#bdb7da;font-size:14px;padding:26px 0}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* EQUIPE: fotos reais como recortes na colagem */
+.team{padding:clamp(70px,9vw,120px) 0;overflow:hidden}
+.team .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,70px);align-items:center}
+.team h2{margin:0;font:600 clamp(30px,3.2vw,44px)/1.1 var(--display);letter-spacing:-.02em}
+.team p{margin:18px 0 0;max-width:46ch;color:var(--ink-soft)}
+.team ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+.team li{display:flex;gap:12px;align-items:baseline;font-weight:500}
+.team li::before{content:"";flex:0 0 10px;height:10px;border-radius:50%;background:var(--violet);transform:translateY(-1px)}
+.team-art{position:relative;min-height:560px}
+.team-art .blob{position:absolute;inset:8% 4% 6% 10%;background:var(--lilac-soft);border-radius:52% 48% 46% 54%/46% 56% 44% 54%}
+.team-art .ph{position:absolute;margin:0;background:#fff;padding:8px;border-radius:22px;box-shadow:0 18px 40px rgba(37,33,63,.18)}
+.team-art .ph img{display:block;width:100%;height:100%;object-fit:cover;border-radius:15px}
+.team-art .p1{left:6%;top:4%;width:52%;height:78%;transform:rotate(-3deg)}
+.team-art .p2{right:2%;top:0;width:38%;height:50%;transform:rotate(4deg)}
+.team-art .p3{right:6%;bottom:2%;width:46%;height:34%;transform:rotate(-2deg)}
+.team-art .sticker{position:absolute;left:0;bottom:6%;background:var(--violet);color:#fff;font:600 15px/1 var(--display);padding:12px 16px;border-radius:999px;transform:rotate(-4deg)}
+@media(max-width:900px){.team .wrap{grid-template-columns:1fr}.team-art{min-height:460px}}
+@media(max-width:520px){.team-art{min-height:380px}}
 </style>
 </head>
 <body>
@@ -435,6 +454,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <div class="b"><h3>Orçamento em PDF</h3><svg viewBox="0 0 130 160" aria-hidden="true"><use href="#doc"/></svg><p>Cada item e valor descrito. Você sabe exatamente o que está contratando.</p></div>
     <div class="b"><h3>Operamos ao vivo</h3><svg viewBox="0 0 150 140" aria-hidden="true"><use href="#phones"/></svg><p>Alguém da AO cuida do som durante todo o evento, ajustando na hora.</p></div>
     <div class="b"><h3>Desmontamos tudo</h3><svg viewBox="0 0 260 140" aria-hidden="true"><use href="#mixer"/></svg><p>No final, recolhemos cada caixa e cada cabo. Você só cuida do evento.</p></div>
+  </section>
+
+  <!-- EQUIPE -->
+  <section class="team" id="equipe" aria-labelledby="team-title">
+    <div class="wrap">
+      <div>
+        <h2 id="team-title">Quem cuida do seu som</h2>
+        <p>Por trás de cada evento da AO tem gente de verdade na mesa: do planejamento ao último acorde, o seu som fica com quem entende e acompanha tudo de perto.</p>
+        <ul>
+          <li>Planejamento do equipamento para o seu espaço</li>
+          <li>Passagem de som com quem vai falar e cantar</li>
+          <li>Operação da mesa do início ao fim</li>
+        </ul>
+      </div>
+      <div class="team-art">
+        <div class="blob" aria-hidden="true"></div>
+        <figure class="ph p1"><img src="img/img_2767.jpg" alt="Técnico da AO operando a mesa de som digital durante um culto, com o público ao fundo" loading="lazy"></figure>
+        <figure class="ph p2"><img src="img/img_2792.jpg" alt="Técnico conferindo um microfone sem fio antes do evento" loading="lazy"></figure>
+        <figure class="ph p3"><img src="img/img_2787.jpg" alt="Mãos ajustando os faders de uma mesa de som iluminada" loading="lazy"></figure>
+        <span class="sticker">Na mesa do início ao fim</span>
+      </div>
+    </div>
   </section>
 
   <!-- IGREJAS E EMPRESAS -->
