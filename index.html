@@ -479,7 +479,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <script>
 const WHATSAPP = '5511985724372';
-const EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/ams.producoes7@gmail.com';
+const EMAIL_ENDPOINT = 'https://api.web3forms.com/submit';
+const W3F_KEY = '9066a034-dbf6-4977-a4af-fb90cde98ddd';
 const wa = txt => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
 document.querySelectorAll('.wa-link').forEach(a => { a.href = wa('Olá, AO Produções! Quero um orçamento para um evento.'); a.target = '_blank'; a.rel = 'noopener'; });
 
@@ -502,7 +503,7 @@ document.getElementById('quoteForm').addEventListener('submit', e => {
   const note = document.getElementById('formNote');
   note.textContent = 'Enviando seu pedido...';
   fetch(EMAIL_ENDPOINT, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({ _subject: `Pedido de orçamento: ${nome} (${v('fTipo')})`, _template: 'table', _captcha: 'false',
+    body: JSON.stringify({ access_key: W3F_KEY, subject: `Pedido de orçamento: ${nome} (${v('fTipo')})`, from_name: 'Site AO Produções',
       Nome: nome, Contato: v('fFone') || '-', Evento: v('fTipo'), Data: data, Pessoas: v('fPessoas') || '-', Local: v('fLocal') || '-', Precisa: v('fPrecisa') || '-' }) })
     .then(r => { note.textContent = r.ok ? 'Pedido recebido! Confira também a mensagem no WhatsApp e toque em enviar.' : 'Confira a mensagem no WhatsApp e toque em enviar.'; })
     .catch(() => { note.textContent = 'Confira a mensagem no WhatsApp e toque em enviar.'; });
