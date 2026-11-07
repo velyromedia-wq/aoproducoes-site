@@ -461,14 +461,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       </div>
       <form id="quoteForm" novalidate>
         <div><label for="fNome">Seu nome</label><input id="fNome" autocomplete="name" required></div>
+        <div><label for="fFone">WhatsApp ou telefone</label><input id="fFone" type="tel" autocomplete="tel" placeholder="(11) 90000-0000"></div>
         <div><label for="fTipo">Tipo de evento</label>
           <select id="fTipo"><option>Culto</option><option>Congresso ou conferência</option><option>Evento de empresa</option><option>Palestra ou treinamento</option><option>Outro</option></select></div>
         <div><label for="fData">Data</label><input id="fData" type="date"></div>
         <div><label for="fPessoas">Quantas pessoas?</label><input id="fPessoas" inputmode="numeric" placeholder="Ex.: 300"></div>
         <div class="full"><label for="fLocal">Local / cidade</label><input id="fLocal" placeholder="Ex.: Igreja Central, Barueri"></div>
         <div class="full"><label for="fPrecisa">Do que você precisa?</label><textarea id="fPrecisa" placeholder="Ex.: som para banda e 4 microfones, transmissão no YouTube"></textarea></div>
-        <button type="submit"><svg><use href="#wa"/></svg>Enviar pelo WhatsApp</button>
-        <p class="form-note" id="formNote">Abre o WhatsApp com a mensagem escrita. Você revisa antes de enviar.</p>
+        <button type="submit"><svg><use href="#wa"/></svg>Pedir orçamento</button>
+        <p class="form-note" id="formNote">Seu pedido chega no nosso e-mail e o WhatsApp abre com a mensagem pronta.</p>
       </form>
     </div>
   </section>
@@ -478,6 +479,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <script>
 const WHATSAPP = '5511985724372';
+const EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/ams.producoes7@gmail.com';
 const wa = txt => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
 document.querySelectorAll('.wa-link').forEach(a => { a.href = wa('Olá, AO Produções! Quero um orçamento para um evento.'); a.target = '_blank'; a.rel = 'noopener'; });
 
@@ -493,9 +495,17 @@ document.getElementById('quoteForm').addEventListener('submit', e => {
   const nome = v('fNome');
   if (!nome) { document.getElementById('fNome').focus(); document.getElementById('formNote').textContent = 'Escreva seu nome para continuar.'; return; }
   const data = v('fData') ? v('fData').split('-').reverse().join('/') : 'a combinar';
-  const msg = [`Olá, AO Produções! Sou ${nome} e quero um orçamento.`, `Evento: ${v('fTipo')}`, `Data: ${data}`, v('fPessoas') && `Pessoas: ${v('fPessoas')}`, v('fLocal') && `Local: ${v('fLocal')}`, v('fPrecisa') && `Preciso de: ${v('fPrecisa')}`].filter(Boolean).join('\n');
+  const msg = [`Olá, AO Produções! Sou ${nome} e quero um orçamento.`, v('fFone') && `Contato: ${v('fFone')}`, `Evento: ${v('fTipo')}`, `Data: ${data}`, v('fPessoas') && `Pessoas: ${v('fPessoas')}`, v('fLocal') && `Local: ${v('fLocal')}`, v('fPrecisa') && `Preciso de: ${v('fPrecisa')}`].filter(Boolean).join('\n');
+  // 1) WhatsApp abre na hora (antes de qualquer espera, para o navegador não bloquear)
   window.open(wa(msg), '_blank', 'noopener');
-  document.getElementById('formNote').textContent = 'Pronto! Confira a mensagem no WhatsApp e toque em enviar.';
+  // 2) Cópia do pedido vai para o e-mail da AO
+  const note = document.getElementById('formNote');
+  note.textContent = 'Enviando seu pedido...';
+  fetch(EMAIL_ENDPOINT, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ _subject: `Pedido de orçamento: ${nome} (${v('fTipo')})`, _template: 'table', _captcha: 'false',
+      Nome: nome, Contato: v('fFone') || '-', Evento: v('fTipo'), Data: data, Pessoas: v('fPessoas') || '-', Local: v('fLocal') || '-', Precisa: v('fPrecisa') || '-' }) })
+    .then(r => { note.textContent = r.ok ? 'Pedido recebido! Confira também a mensagem no WhatsApp e toque em enviar.' : 'Confira a mensagem no WhatsApp e toque em enviar.'; })
+    .catch(() => { note.textContent = 'Confira a mensagem no WhatsApp e toque em enviar.'; });
 });
 </script>
 </body>
